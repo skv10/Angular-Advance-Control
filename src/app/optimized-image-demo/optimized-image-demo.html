@@ -1,0 +1,112 @@
+<div class="demo-container">
+  <h1>NgOptimizedImage Directive Features</h1>
+
+  <!-- 1. Basic Usage with Required Attributes -->
+  <section>
+    <h2>1. Basic Usage (width, height, alt required)</h2>
+    <img 
+      ngSrc="{{imageUrl}}" 
+      width="400" 
+      height="300" 
+      alt="Sample optimized image">
+  </section>
+
+  <!-- 2. Priority Loading (LCP - Largest Contentful Paint) -->
+  <section>
+    <h2>2. Priority Loading (Above the fold)</h2>
+    <img 
+      ngSrc="{{imageUrl}}" 
+      width="400" 
+      height="300" 
+      alt="Priority loaded image"
+      priority>
+  </section>
+
+  <!-- 3. Placeholder Support -->
+  <section>
+    <h2>3. Placeholder Support</h2>
+    <img 
+      ngSrc="{{imageUrl}}" 
+      width="400" 
+      height="300" 
+      alt="Image with placeholder"
+      placeholder="{{placeholderUrl}}">
+  </section>
+
+  <!-- 4. Responsive Images with Sizes -->
+  <section>
+    <h2>4. Responsive Images</h2>
+    <img 
+      ngSrc="{{imageUrl}}" 
+      width="800" 
+      height="600" 
+      alt="Responsive image"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw">
+  </section>
+
+  <!-- 5. Fill Mode (for containers) -->
+  <section>
+    <h2>5. Fill Mode</h2>
+    <div class="image-container">
+      <img 
+        ngSrc="{{imageUrl}}" 
+        fill 
+        alt="Fill mode image"
+        sizes="(max-width: 768px) 100vw, 50vw">
+    </div>
+  </section>
+
+  <!-- 6. Lazy Loading (default behavior) -->
+  <section>
+    <h2>6. Lazy Loading (Default)</h2>
+    <img 
+      ngSrc="{{imageUrl}}" 
+      width="400" 
+      height="300" 
+      alt="Lazy loaded image">
+  </section>
+
+  <!-- 7. Eager Loading -->
+  <section>
+    <h2>7. Eager Loading</h2>
+    <img 
+      ngSrc="{{imageUrl}}" 
+      width="400" 
+      height="300" 
+      alt="Eager loaded image"
+      loading="eager">
+  </section>
+
+  <!-- 8. Custom Loader (for CDN optimization) -->
+  <section>
+    <h2>8. Multiple Images for Performance Testing</h2>
+    <div class="image-grid">
+      <img 
+        ngSrc="https://picsum.photos/300/200?random=1" 
+        width="300" 
+        height="200" 
+        alt="Grid image 1">
+      <img 
+        ngSrc="https://picsum.photos/300/200?random=2" 
+        width="300" 
+        height="200" 
+        alt="Grid image 2">
+      <img 
+        ngSrc="https://picsum.photos/300/200?random=3" 
+        width="300" 
+        height="200" 
+        alt="Grid image 3">
+    </div>
+  </section>
+
+  <!-- 9. Error Handling -->
+  <section>
+    <h2>9. Error Handling</h2>
+    <img 
+      ngSrc="https://invalid-url.com/image.jpg" 
+      width="400" 
+      height="300" 
+      alt="This image will fail to load"
+      (error)="onImageError($event)">
+  </section>
+</div>
